@@ -1,0 +1,5 @@
+---
+- name: restart_proftpd_systemd
+  systemd:
+    name: proftpd.service
+    state: restarted

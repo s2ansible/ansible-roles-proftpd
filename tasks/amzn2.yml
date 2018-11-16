@@ -1,0 +1,19 @@
+- name: install proftpd
+  yum:
+    name: proftpd
+    state: present
+
+- name: /etc/proftpd.conf
+  template:
+    src: proftpd.conf.j2
+    dest: /etc/proftpd.conf
+    owner: root
+    group: root
+    mode: 0640
+  notify: restart_proftpd_systemd
+
+- name: start proftpd
+  systemd:
+    name: proftpd.service
+    enabled: yes
+    state: started
