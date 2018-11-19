@@ -6,6 +6,8 @@ DefaultServer on
 Port 21
 ListOptions "-a"
 UseIPv6 off
+MasqueradeAddress {{ proftpd_MasqueradeAddress }}
+PassivePorts {{ proftpd_PassivePorts }}
 DefaultRoot ~
 AuthPAMConfig proftpd
 AuthOrder mod_auth_unix.c
